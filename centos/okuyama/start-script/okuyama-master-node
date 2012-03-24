@@ -1,0 +1,31 @@
+#!/bin/sh
+# chkconfig: 2345 91 11
+# description: okuyama 1.0.0
+
+## /usr/java/default is necessary
+# Mac OS X example )
+# $ sudo ln -s /System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home /usr/java/default
+JAVA_HOME=/usr/java/default
+OKUYAMA_HOME=/usr/lib/okuyama-CommercialUseLicense-1.0.0/install
+
+master_node_properties=$OKUYAMA_HOME/conf/MasterNode.properties
+
+stdout_log=/var/log/okuyama/master-node.stdout.log
+stderr_log=/var/log/okuyama/master-node.stderr.log
+
+if [ "$1" = "start" ]; then
+  echo "starting okuyama master node ..." >&2
+  echo "std output into $stdout_log ..." >&2
+  echo "std error  into $stderr_log ..." >&2
+  echo "[$(date '+%Y-%m-%d %H:%M:%S')](INFO) START" >> $stdout_log
+  echo "[$(date '+%Y-%m-%d %H:%M:%S')](INFO) START" >> $stderr_log
+
+  $JAVA_HOME/bin/java -classpath $OKUYAMA_HOME:$OKUYAMA_HOME/bin/okuyama-CommercialUseLicense-1.0.0.jar:$OKUYAMA_HOME/lib/log4j-1.2.14.jar:$OKUYAMA_HOME/lib/javamail-1.4.1.jar:$OKUYAMA_HOME/lib/commons-codec-1.4.jar -Xss512k  -Xmx1024m -Xms512m -server -XX:+UseConcMarkSweepGC -XX:+CMSParallelRemarkEnabled -XX:+UseParNewGC okuyama.base.JavaMain $OKUYAMA_HOME/conf/Main.properties $master_node_properties 1>>$stdout_log 2>>$stderr_log &
+elif [ "$1" = "stop" ]; then
+  port=18888
+  echo "stop okuyama master node ..." >&2
+  sh $OKUYAMA_HOME/bin/stop.sh | telnet 127.0.0.1 $port
+  echo "[$(date '+%Y-%m-%d %H:%M:%S')](INFO) STOP" >> $stdout_log
+  echo "[$(date '+%Y-%m-%d %H:%M:%S')](INFO) STOP" >> $stderr_log
+fi
+
