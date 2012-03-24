@@ -22,15 +22,23 @@ sudo mkdir -p /data/okuyama/keymapfile
 
 cd $WDIR
 
-sudo cp ./start-script/* /etc/init.d/ 
-sudo cp ./conf/* /usr/lib/okuyama-CommercialUseLicense-1.0.0/install/conf/ 
+sudo cp ./conf/* /usr/lib/okuyama/install/conf/ 
+sudo cp ./start-script/* /usr/lib/okuyama/install/bin/
+sudo chmod 755 /usr/lib/okuyama/install/bin/okuyama-master-node
+sudo chmod 755 /usr/lib/okuyama/install/bin/okuyama-master-node-memcached
+sudo chmod 755 /usr/lib/okuyama/install/bin/okuyama-data-node
 
-sudo chmod 755 /etc/init.d/okuyama-master-node
+sudo cp /usr/lib/okuyama/install/bin/okuyama-master-node /etc/init.d/
 sudo /sbin/chkconfig --add okuyama-master-node
 sudo /sbin/chkconfig okuyama-master-node on
 sudo /sbin/chkconfig --list okuyama-master-node
 
-sudo chmod 755 /etc/init.d/okuyama-data-node
+sudo cp /usr/lib/okuyama/install/bin/okuyama-master-node-memcached /etc/init.d/
+sudo /sbin/chkconfig --add okuyama-master-node-memcached
+sudo /sbin/chkconfig okuyama-master-node-memcached on
+sudo /sbin/chkconfig --list okuyama-master-node-memcached
+
+sudo cp /usr/lib/okuyama/install/bin/okuyama-data-node /etc/init.d/
 sudo /sbin/chkconfig --add okuyama-data-node
 sudo /sbin/chkconfig okuyama-data-node on
 sudo /sbin/chkconfig --list okuyama-data-node

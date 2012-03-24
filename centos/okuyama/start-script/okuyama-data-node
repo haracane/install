@@ -1,5 +1,5 @@
 #!/bin/sh
-# chkconfig: 2345 90 10
+# chkconfig: 2345 90 11
 # description: okuyama 1.0.0
 
 ## /usr/java/default is necessary
