@@ -2,6 +2,8 @@
 
 WDIR=$(cd $(dirname $0); pwd)
 
+# http://okuyama-project.com/ja/okuyama/download.html から商用版をダウンロード&インストール
+
 cd ~/src
 unzip okuyama-CommercialUseLicense-1.0.0.zip
 cd okuyama-CommercialUseLicense-1.0.0
