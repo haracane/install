@@ -1,5 +1,6 @@
 cd ~/src
-wget http://ftp.riken.jp/Linux/fedora/epel/5/i386/epel-release-5-4.noarch.rpm
+wget http://ftp.riken.jp/Linux/fedora/epel/5/i386/epel-release-5-4.noarch.rpm  #32-bit
+# wget http://ftp.riken.jp/Linux/fedora/epel/5/x86_64/epel-release-5-6.noarch.rpm  #64-bit
 sudo rpm -Uvh epel-release-5-4.noarch.rpm
 sudo  yum --enablerepo=epel install rpm-build spawn-fcgi pcre-devel zlib-devel openssl-devel
 wget http://download.fedora.redhat.com/pub/epel/5/SRPMS/nginx-0.8.55-1.el5.src.rpm
