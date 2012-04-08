@@ -1,0 +1,8 @@
+server {
+  listen 8080;
+  server_name hostname;
+  passenger_enabled on;
+  passenger_base_uri /project;
+  rails_env production;
+}
+

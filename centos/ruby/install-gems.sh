@@ -1,4 +1,4 @@
-gem install -y jeweler rails rspec rcov ci_reporter
+gem install -y jeweler rails rspec rcov ci_reporter unicorn
 
 GITHUB_DIR=/var/github
 
