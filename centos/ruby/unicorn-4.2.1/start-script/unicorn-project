@@ -1,0 +1,38 @@
+UNICORN_RAILS=/usr/local/bin/unicorn_rails
+PROJECT_NAME=project
+RAILS_PROJECT=/path/to/rails/$PROJECT_NAME
+
+command=$1
+
+case $command in
+start )
+  cd $RAILS_PROJECT
+  echo "[$(date '+%Y-%m-%d %H:%M:%S')](INFO) $UNICORN_RAILS -c config/unicorn.rb --path /$PROJECT_NAME -D -E production" >&2
+  $UNICORN_RAILS -c config/unicorn.rb --path /$PROJECT_NAME -D -E production
+;;
+graceful-stop )
+  echo "[$(date '+%Y-%m-%d %H:%M:%S')](INFO) stop unicorn_rails master" >&2
+  pid=$(pgrep -f 'unicorn_rails master')
+  sudo kill -QUIT $pid
+;;
+stop )
+  echo "[$(date '+%Y-%m-%d %H:%M:%S')](INFO) stop unicorn_rails master" >&2
+  pid=$(pgrep -f 'unicorn_rails master')
+  sudo kill -INT $pid
+;;
+reload )
+  echo "[$(date '+%Y-%m-%d %H:%M:%S')](INFO) reload unicorn" >&2
+  pid=$(pgrep -f 'unicorn_rails master')
+  sudo kill -HUP $pid
+;;
+deploy )
+  echo "[$(date '+%Y-%m-%d %H:%M:%S')](INFO) deploy unicorn" >&2
+  pid=$(pgrep -f 'unicorn_rails master')
+  sudo kill -USR $pid
+;;
+restart )
+  $0 stop
+  $0 start
+;;
+esac
+
