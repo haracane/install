@@ -1,19 +1,19 @@
- * unicorn gem をインストール
-  sudo gem install unicorn #--version 4.2.1
+= unicorn gem をインストール
+ sudo gem install unicorn #--version 4.2.1
  
-* unicorn の設定
-https://github.com/haracane/install/tree/master/centos/ruby/unicorn-4.2.1
-以下のファイルを参考に/path/to/rails/project以下に
-- config.ru
-- config/unicorn.rb
+= unicorn の設定
+リンク先を参考に/path/to/rails/project以下に
+- {config.ru}[https://github.com/haracane/install/tree/master/centos/ruby/unicorn-4.2.1/config.ru]
+- {config/unicorn.rb}[https://github.com/haracane/install/tree/master/centos/ruby/unicorn-4.2.1/config/unicorn.rb]
 を作成する
 
-* unicorn起動設定
-start-script/unicorn-projectを参考に/etc/init.d/unicorn-projectを作成して自動起動設定
+= unicorn起動設定
+{start-script/unicorn-project}[https://github.com/haracane/install/tree/master/centos/ruby/unicorn-4.2.1/start-script/unicorn-project]
+を参考に/etc/init.d/unicorn-projectを作成して自動起動設定
  sudo chmod 755 /etc/init.d/unicorn-project
  sudo chkconfig --add unicorn-project
  sudo chkconfig unicorn-project on
  sudo chkconfig --list unicorn-project
 
-* unicornを起動
+= unicornを起動
  sudo service unicorn-project start
