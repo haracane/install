@@ -24,11 +24,12 @@
 = 設定ファイル作成
 以下を参考に/opt/nginx/conf以下に設定ファイルを作成
 - {nginx.conf}[https://github.com/haracane/install/centos/nginx-1.0.10/conf/nginx.conf]
-- {conf.d/proxy.conf}[https://github.com/haracane/install/centos/nginx-1.0.10/conf/conf.d/proxy.conf]
-- {conf.d/proxy_ssl.conf}[https://github.com/haracane/install/centos/nginx-1.0.10/conf/conf.d/proxy_ssl.conf]
-- {conf.d/proxy_cache.conf}[https://github.com/haracane/install/centos/nginx-1.0.10/conf/conf.d/proxy_cache.conf]
-- {conf.d/unicorn.conf}[https://github.com/haracane/install/centos/nginx-1.0.10/conf/conf.d/unicorn.conf]
-- {conf.d/passenger.conf}[https://github.com/haracane/install/centos/nginx-1.0.10/conf/conf.d/passenger.conf]
+- conf.d
+-- {proxy.conf}[https://github.com/haracane/install/centos/nginx-1.0.10/conf/conf.d/proxy.conf]
+-- {proxy_ssl.conf}[https://github.com/haracane/install/centos/nginx-1.0.10/conf/conf.d/proxy_ssl.conf]
+-- {proxy_cache.conf}[https://github.com/haracane/install/centos/nginx-1.0.10/conf/conf.d/proxy_cache.conf]
+-- {unicorn.conf}[https://github.com/haracane/install/centos/nginx-1.0.10/conf/conf.d/unicorn.conf]
+-- {passenger.conf}[https://github.com/haracane/install/centos/nginx-1.0.10/conf/conf.d/passenger.conf]
 
 = サーバ秘密鍵&証明書作成
  cd /opt/nginx
