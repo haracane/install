@@ -14,10 +14,9 @@
  gcc start-stop-daemon.c -o start-stop-daemon
  sudo cp start-stop-daemon /usr/bin/
 
-= create symbolic link to rails project
+= Railsプロジェクトへのシンボリックリンクを作成
  sudo ln -s /path/to/rails/project/public /opt/nginx/html/project
 
-https://github.com/haracane/install/tree/master/centos/nginx-1.0.10
 = 起動スクリプト作成
  wget -O - https://raw.github.com/haracane/install/master/centos/nginx-1.0.10/start-script/nginx | sudo tee /etc/init.d/nginx
  sudo chmod 755 /etc/init.d/nginx
