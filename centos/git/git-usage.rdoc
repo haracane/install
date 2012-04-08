@@ -1,0 +1,45 @@
+= ユーザアカウント設定 
+ git config --global user.name haracane
+ git config --global user.email haracane@mail.com
+
+= 作業リポジトリ作成 
+ mkdir myproject
+ cd myproject
+ git init
+ touch README
+ git add README
+ローカルリポジトリにコミット
+ git commit -m 'first commit'
+リモートリポジトリのURLエイリアス「origin」を作成
+ git remote add origin git@github.com:haracane/myproject.git
+masterブランチをリモートレポジトリにpush
+ git push -u origin master
+
+=  ブランチ作成 
+ブランチを確認
+ git brahch
+ # -> * master
+ブランチを作成
+ git branch v1.0
+ブランチを切り替え
+ git checkout v1.0
+ git brahch
+ # ->   master
+ # -> * v1.0
+ ブランチ削除
+ git branch -d v1.0
+ git push origin :v1.0
+
+= 作業リポジトリのclone
+ mkdir myproject
+ cd myproject
+ git clone git://github.com/haracane/myproject.git
+
+= 不要データの恒久削除
+ git filter-branch -f --tree-filter 'rm -rf app/tmp' HEAD
+ git push origin master --force
+
+= submoduleの削除
+ git rm --cached path/to/hoge
+ git commit -m 'delete submodule'
+ git push origin master
