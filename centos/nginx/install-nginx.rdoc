@@ -1,4 +1,4 @@
-= yumからインストールする(Passengerを使わない場合)
+= nginxをインストール
 /etc/yum.repos.d/nginx.repoを作成
  [nginx]
  name=nginx repo
