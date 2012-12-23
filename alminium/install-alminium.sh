@@ -3,11 +3,11 @@ if [ $USER != root ]; then
   exit 1
 fi
 
-yum -y install git 
+yum -y install git
 
-if [ ! -d /root/src ]; then mkdir /root/src; fi
-
-cd /root/src
+srcdir=/root/src
+if [ ! -d $srcdir ]; then mkdir -p $srcdir; fi
+cd $srcdir
 
 if [ ! -d alminium ]; then
   git clone https://github.com/alminium/alminium.git
