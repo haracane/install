@@ -10,7 +10,7 @@ if [ "$OS" = "" ]; then OS=rhel6; fi
 base_dir=$(cd $(dirname $0); pwd)
 
 echo "yum -y install git" >&2
-yum -y install git
+yum -y install git rpmdevtools libyaml-devel readline-devel ncurses-devel gdbm-devel tcl-devel openssl-devel db4-devel libffi-devel
 
 srcdir=/root/src
 if [ ! -d $srcdir ]; then mkdir -p $srcdir; fi
@@ -39,6 +39,7 @@ for cmd in rake gem; do
   fi
 done
 
+if [ ! -d cache ]; then mkdir cache; fi
 cd cache
 tarball=redmine-2.0.3.tar.gz
 if [ ! -f $tarball ]; then
